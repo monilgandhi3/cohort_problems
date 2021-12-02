@@ -1,3 +1,4 @@
+
 class Solution {
     LinkedList<int[]> intervalList = new LinkedList();
     public int[][] insert(int[][] intervals, int[] newInterval) {
