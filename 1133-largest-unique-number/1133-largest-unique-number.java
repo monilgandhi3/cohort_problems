@@ -1,28 +1,12 @@
 class Solution {
-    public int largestUniqueNumber(int[] nums) {
-        int result = -1;
-        if(nums.length <= 0) {
-            return result;
+    public int largestUniqueNumber(int[] A) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int a : A) map.put(a, map.getOrDefault(a, 0) + 1);
+
+        int res = -1;
+        for (int a : A) {
+            if (map.get(a) == 1 && a > res) res = a;
         }
-        
-        HashSet<Integer> singleOccurrence = new HashSet<>();
-        HashSet<Integer> multiOccurrence = new HashSet<>();
-        for(int i: nums) {
-            if(!singleOccurrence.contains(i) && !multiOccurrence.contains(i)) {
-                singleOccurrence.add(i);
-            } else {
-                multiOccurrence.add(i);
-                singleOccurrence.remove(i);
-            }
-        }
-        
-        int max = -1;
-        for(int j: singleOccurrence) {
-            if(j > max) {
-                max = j;
-            }
-        }
-        
-        return max;
+        return res;
     }
 }
