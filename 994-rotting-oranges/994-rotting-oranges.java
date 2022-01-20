@@ -27,7 +27,6 @@ class Solution {
             
             // down
             if(r.y+1 < grid[r.x].length && grid[r.x][r.y+1] == 1) {
-                System.out.println("Adding down");
                 justRotten.add(new RottenOrange(r.x, r.y+1));
                 grid[r.x][r.y+1] = 2; 
                 --freshOranges;
